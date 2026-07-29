@@ -1,0 +1,32 @@
+name: Backend CI
+
+on:
+  push:
+    branches: [main, develop]
+    paths: ['backend/**']
+  pull_request:
+    branches: [main, develop]
+    paths: ['backend/**']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore backend/EnglishTutorPlatform.sln
+
+      - name: Build
+        run: dotnet build backend/EnglishTutorPlatform.sln --no-restore --configuration Release
+
+      - name: Publish
+        run: dotnet publish backend/EnglishTutorPlatform.Api/EnglishTutorPlatform.Api.csproj --configuration Release --output ./publish
+
+  # Azure App Service 배포는 별도 workflow에서 설정

@@ -1,0 +1,55 @@
+# ===== C# / .NET =====
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.swp
+appsettings.Development.json
+appsettings.Production.json
+
+# EF Core migrations snapshots that include secrets
+# (Migrations 폴더 자체는 추적, 단 민감 설정 제외)
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+
+# ===== Node / Next.js =====
+node_modules/
+.next/
+out/
+build/
+dist/
+.env
+.env.local
+.env.*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ===== IDE =====
+.idea/
+.vscode/
+*.DS_Store
+Thumbs.db
+
+# ===== Logs =====
+logs/
+*.log
+
+# ===== Misc =====
+*.pid
+*.seed
+*.pid.lock
+coverage/
+.cache/
