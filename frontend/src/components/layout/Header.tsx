@@ -120,16 +120,6 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Admin Link */}
-        <div className="hidden lg:block">
-          <Link
-            href="/admin"
-            className="text-xs text-gray-400 hover:text-gray-600 px-3 py-1 border border-gray-200 rounded-lg"
-          >
-            관리자
-          </Link>
-        </div>
-
         {/* Mobile Hamburger */}
         <button
           className="lg:hidden p-2 text-gray-600"
@@ -181,11 +171,6 @@ export default function Header() {
               )}
             </div>
           ))}
-          <div className="border-t px-4 py-3">
-            <Link href="/admin" className="text-sm text-gray-400" onClick={() => setOpen(false)}>
-              관리자 로그인
-            </Link>
-          </div>
         </div>
       )}
     </header>

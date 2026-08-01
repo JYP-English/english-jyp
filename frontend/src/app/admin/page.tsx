@@ -10,7 +10,7 @@ export default function AdminPage() {
   function handleLogin(e: React.FormEvent) {
     e.preventDefault();
     // TODO: replace with real JWT auth call
-    if (password === 'admin1234') {
+    if (password === 'Pa64949372@@1231') {
       setAuthed(true);
       setError('');
     } else {
