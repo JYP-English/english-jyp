@@ -19,7 +19,7 @@ export default function InquiriesPage() {
   const [inquiries, setInquiries] = useState<Inquiry[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [expanded, setExpanded] = useState<number | null>(null);
+  const [expanded, setExpanded] = useState<string | null>(null);
 
   useEffect(() => {
     if (!isAuthed) router.replace('/admin');
@@ -39,7 +39,7 @@ export default function InquiriesPage() {
 
   useEffect(() => { fetchInquiries(); }, [fetchInquiries]);
 
-  async function handleStatusChange(id: number, status: number) {
+  async function handleStatusChange(id: string, status: number) {
     try {
       const updated = await inquiryAdminApi.updateStatus(id, status);
       setInquiries((prev) => prev.map((i) => (i.id === id ? { ...i, status: updated.status } : i)));

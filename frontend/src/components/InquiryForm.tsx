@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { inquiryApi } from '@/lib/api';
 
 export default function InquiryForm() {
   const [form, setForm] = useState({
@@ -20,13 +19,18 @@ export default function InquiryForm() {
     setError('');
 
     try {
-      await inquiryApi.submit({
-        name: form.name,
-        phone: form.phone,
-        school: form.school || undefined,
-        grade: form.grade ? Number(form.grade) : undefined,
-        message: form.message,
+      const res = await fetch('/api/inquiries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          school: form.school || undefined,
+          grade: form.grade ? Number(form.grade) : undefined,
+          message: form.message,
+        }),
       });
+      if (!res.ok) throw new Error();
       setStatus('success');
       setForm({ name: '', phone: '', school: '', grade: '', message: '' });
     } catch {
