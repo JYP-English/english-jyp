@@ -27,16 +27,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           {MENU.map((item) => (
             <Link
               key={item.href}
-              href={item.soon ? '#' : item.href}
+              href={item.href}
               className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-colors ${
                 pathname === item.href || (item.href !== '/admin' && pathname.startsWith(item.href))
                   ? 'bg-white text-gray-900 font-semibold'
                   : 'text-gray-300 hover:bg-gray-800'
-              } ${item.soon ? 'opacity-40 cursor-not-allowed' : ''}`}
+              }`}
             >
               <span>{item.icon}</span>
               <span>{item.label}</span>
-              {item.soon && <span className="ml-auto text-[10px] bg-gray-700 px-1.5 py-0.5 rounded">준비중</span>}
             </Link>
           ))}
         </nav>

@@ -66,18 +66,11 @@ export default function AdminPage() {
           <Link
             key={item.label}
             href={item.href}
-            className={`bg-white border border-gray-200 rounded-2xl p-6 transition-all ${
-              item.soon
-                ? 'opacity-50 cursor-not-allowed'
-                : 'hover:border-gray-400 hover:shadow-sm cursor-pointer'
-            }`}
+            className="bg-white border border-gray-200 rounded-2xl p-6 transition-all hover:border-gray-400 hover:shadow-sm cursor-pointer"
           >
             <span className="text-3xl">{item.icon}</span>
             <div className="flex items-center gap-2 mt-3 mb-1">
               <h2 className="font-bold">{item.label}</h2>
-              {item.soon && (
-                <span className="text-[10px] bg-gray-100 text-gray-400 px-2 py-0.5 rounded-full">준비중</span>
-              )}
             </div>
             <p className="text-sm text-gray-400">{item.desc}</p>
           </Link>
