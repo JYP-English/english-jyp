@@ -95,6 +95,7 @@ export default function MockExamArchivePage() {
         <div>
           <p className="text-sm font-semibold text-gray-700 mb-2">학년</p>
           <div className="flex flex-wrap gap-2">
+            <FilterBtn label="전체" active={grade === ''} onClick={() => setGrade('')} />
             {MOCK_GRADES.map((g) => (
               <FilterBtn key={g} label={g} active={grade === g} onClick={() => toggle(grade, g, setGrade)} />
             ))}
@@ -103,6 +104,7 @@ export default function MockExamArchivePage() {
         <div>
           <p className="text-sm font-semibold text-gray-700 mb-2">학년도</p>
           <div className="flex flex-wrap gap-2">
+            <FilterBtn label="전체" active={year === null} onClick={() => setYear(null)} />
             {YEARS.map((y) => (
               <FilterBtn key={y} label={`${y}학년도`} active={year === y} onClick={() => toggle(year, y, setYear)} />
             ))}
@@ -111,6 +113,7 @@ export default function MockExamArchivePage() {
         <div>
           <p className="text-sm font-semibold text-gray-700 mb-2">교육청</p>
           <div className="flex flex-wrap gap-2">
+            <FilterBtn label="전체" active={board === ''} onClick={() => setBoard('')} />
             {MOCK_BOARDS.map((b) => (
               <FilterBtn key={b} label={b} active={board === b} onClick={() => toggle(board, b, setBoard)} />
             ))}
@@ -122,10 +125,10 @@ export default function MockExamArchivePage() {
       <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden">
         <div className="px-6 py-4 border-b border-gray-100 bg-gray-50 grid grid-cols-[2fr_1fr_1fr_1fr_auto] text-sm font-semibold text-gray-600 gap-4">
           <span>시험명</span>
-          <span>학년</span>
-          <span>학년도 / 월</span>
-          <span>교육청</span>
-          <span>파일</span>
+          <span className="text-center">학년</span>
+          <span className="text-center">학년도 / 월</span>
+          <span className="text-center">교육청</span>
+          <span className="text-center">파일</span>
         </div>
 
         {loading ? (
@@ -144,13 +147,13 @@ export default function MockExamArchivePage() {
                 className="px-6 py-4 grid grid-cols-[2fr_1fr_1fr_1fr_auto] gap-4 items-center hover:bg-gray-50 transition-colors"
               >
                 <span className="font-medium text-sm text-gray-800">{row.시험명}</span>
-                <span className="text-sm text-gray-600">{row.학년}</span>
-                <span className="text-sm text-gray-600">
+                <span className="text-sm text-gray-600 text-center">{row.학년}</span>
+                <span className="text-sm text-gray-600 text-center">
                   {row.학년도 != null ? `${row.학년도}학년도` : ''}
                   {row.월 != null ? ` ${row.월}월` : ''}
                 </span>
-                <span className="text-sm text-gray-600">{row.교육청}</span>
-                <div className="flex items-center gap-1.5">
+                <span className="text-sm text-gray-600 text-center">{row.교육청}</span>
+                <div className="flex items-center justify-center gap-1.5">
                   <FileBtn url={row.문제지} label="문제지" emoji="📄" />
                   <FileBtn url={row.정답} label="정답" emoji="✅" />
                   <FileBtn url={row.듣기} label="듣기" emoji="🔊" />
