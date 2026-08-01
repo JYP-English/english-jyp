@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Header from '@/components/layout/Header';
 import { tutorApi } from '@/lib/api';
 
@@ -24,10 +25,13 @@ export default async function AboutPage() {
         <div className="flex flex-col md:flex-row gap-10 items-start mb-16">
           <div className="w-40 h-40 rounded-full bg-blue-700 flex items-center justify-center text-white text-5xl font-bold shrink-0">
             {profile?.profileImageUrl ? (
-              <img
+              <Image
                 src={profile.profileImageUrl}
                 alt="강사 프로필"
+                width={160}
+                height={160}
                 className="w-full h-full rounded-full object-cover"
+                unoptimized
               />
             ) : 'JYP'}
           </div>
