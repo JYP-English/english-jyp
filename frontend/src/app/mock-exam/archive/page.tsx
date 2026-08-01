@@ -123,12 +123,12 @@ export default function MockExamArchivePage() {
 
       {/* 자료 목록 */}
       <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden">
-        <div className="px-6 py-4 border-b border-gray-100 bg-gray-50 grid grid-cols-[2fr_1fr_1fr_1fr_auto] text-sm font-semibold text-gray-600 gap-4">
+        <div className="px-6 py-4 border-b border-gray-100 bg-gray-50 grid grid-cols-[2fr_1fr_1.5fr_1fr_160px] text-sm font-semibold text-gray-600 gap-4">
           <span>시험명</span>
-          <span className="text-center">학년</span>
-          <span className="text-center">학년도 / 월</span>
-          <span className="text-center">교육청</span>
-          <span className="text-center">파일</span>
+          <span className="flex justify-center">학년</span>
+          <span className="flex justify-center">학년도 / 월</span>
+          <span className="flex justify-center">교육청</span>
+          <span className="flex justify-center">파일</span>
         </div>
 
         {loading ? (
@@ -144,15 +144,15 @@ export default function MockExamArchivePage() {
             {items.map((row) => (
               <div
                 key={row.id}
-                className="px-6 py-4 grid grid-cols-[2fr_1fr_1fr_1fr_auto] gap-4 items-center hover:bg-gray-50 transition-colors"
+                className="px-6 py-4 grid grid-cols-[2fr_1fr_1.5fr_1fr_160px] gap-4 items-center hover:bg-gray-50 transition-colors"
               >
                 <span className="font-medium text-sm text-gray-800">{row.시험명}</span>
-                <span className="text-sm text-gray-600 text-center">{row.학년}</span>
-                <span className="text-sm text-gray-600 text-center">
+                <span className="text-sm text-gray-600 flex justify-center">{row.학년}</span>
+                <span className="text-sm text-gray-600 flex justify-center">
                   {row.학년도 != null ? `${row.학년도}학년도` : ''}
                   {row.월 != null ? ` ${row.월}월` : ''}
                 </span>
-                <span className="text-sm text-gray-600 text-center">{row.교육청}</span>
+                <span className="text-sm text-gray-600 flex justify-center">{row.교육청}</span>
                 <div className="flex items-center justify-center gap-1.5">
                   <FileBtn url={row.문제지} label="문제지" emoji="📄" />
                   <FileBtn url={row.정답} label="정답" emoji="✅" />
