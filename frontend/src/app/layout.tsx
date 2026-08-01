@@ -27,7 +27,8 @@ export const metadata: Metadata = {
     description: DEFAULT_DESCRIPTION,
     images: [
       {
-        url: '/og-image.png',
+        url: '/og-image.png?v=2',
+
         width: 1200,
         height: 630,
         alt: '카르마 영어학원',
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
-    images: ['/og-image.png'],
+    images: ['/og-image.png?v=2'],
   },
   keywords: ['카르마 영어학원', '부산 영어학원', '금정구 영어', '중고등 영어', '내신 영어', '모의고사 영어', '부산 금정구 학원'],
   authors: [{ name: 'JYP' }],
