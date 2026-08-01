@@ -40,6 +40,25 @@ export const passageApi = {
     request<null>('PUT', '/api/v1/passages/reorder', orders),
 };
 
+export const inquiryAdminApi = {
+  list: (page = 1, pageSize = 50) =>
+    request<{ items: Inquiry[]; totalCount: number }>('GET', `/api/v1/inquiries?page=${page}&pageSize=${pageSize}`),
+
+  updateStatus: (id: number, status: number) =>
+    request<Inquiry>('PATCH', `/api/v1/inquiries/${id}/status`, { status }),
+};
+
+export interface Inquiry {
+  id: number;
+  name: string;
+  phone: string;
+  school?: string;
+  grade?: number;
+  message: string;
+  status: number; // 0=미확인, 1=확인, 2=완료
+  createdAt: string;
+}
+
 export interface Passage {
   id: number;
   category: number;

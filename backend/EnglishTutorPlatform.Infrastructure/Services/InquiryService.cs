@@ -11,8 +11,13 @@ namespace EnglishTutorPlatform.Infrastructure.Services;
 public class InquiryService : IInquiryService
 {
     private readonly AppDbContext _db;
+    private readonly IEmailService _email;
 
-    public InquiryService(AppDbContext db) => _db = db;
+    public InquiryService(AppDbContext db, IEmailService email)
+    {
+        _db = db;
+        _email = email;
+    }
 
     public async Task<InquiryDto> CreateInquiryAsync(CreateInquiryDto dto)
     {
@@ -28,7 +33,12 @@ public class InquiryService : IInquiryService
 
         _db.Inquiries.Add(inquiry);
         await _db.SaveChangesAsync();
-        return Map(inquiry);
+
+        var result = Map(inquiry);
+        // 이메일 실패해도 문의 접수는 성공으로 처리
+        _ = _email.SendInquiryNotificationAsync(result);
+
+        return result;
     }
 
     public async Task<PagedResponse<InquiryDto>> GetInquiriesAsync(int page, int pageSize)

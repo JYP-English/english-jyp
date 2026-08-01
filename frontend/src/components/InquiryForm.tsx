@@ -5,7 +5,7 @@ import { inquiryApi } from '@/lib/api';
 
 export default function InquiryForm() {
   const [form, setForm] = useState({
-    name: '', phone: '', email: '', school: '', grade: '', message: '',
+    name: '', phone: '', school: '', grade: '', message: '',
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [error, setError] = useState('');
@@ -23,13 +23,12 @@ export default function InquiryForm() {
       await inquiryApi.submit({
         name: form.name,
         phone: form.phone,
-        email: form.email || undefined,
         school: form.school || undefined,
         grade: form.grade ? Number(form.grade) : undefined,
         message: form.message,
       });
       setStatus('success');
-      setForm({ name: '', phone: '', email: '', school: '', grade: '', message: '' });
+      setForm({ name: '', phone: '', school: '', grade: '', message: '' });
     } catch {
       setStatus('error');
       setError('문의 접수에 실패했습니다. 잠시 후 다시 시도해 주세요.');
@@ -68,14 +67,6 @@ export default function InquiryForm() {
           <input
             name="phone" value={form.phone} onChange={handleChange} required
             placeholder="010-0000-0000"
-            className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">이메일</label>
-          <input
-            name="email" value={form.email} onChange={handleChange}
-            type="email" placeholder="example@email.com"
             className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
