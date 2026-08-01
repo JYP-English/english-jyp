@@ -21,8 +21,11 @@ public class PostService : IPostService
         if (category.HasValue)
             query = query.Where(p => p.Category == category.Value);
 
-        query = query.OrderByDescending(p => p.IsPinned)
-                     .ThenByDescending(p => p.CreatedAt);
+        // 지문 카테고리는 SortOrder 순서, 그 외는 고정 우선 최신순
+        var isPassageCategory = category.HasValue && (int)category.Value >= 10;
+        query = isPassageCategory
+            ? query.OrderBy(p => p.SortOrder).ThenByDescending(p => p.CreatedAt)
+            : query.OrderByDescending(p => p.IsPinned).ThenByDescending(p => p.CreatedAt);
 
         var total = await query.CountAsync();
         var items = await query.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
@@ -49,13 +52,24 @@ public class PostService : IPostService
 
     public async Task<PostDto> CreatePostAsync(int authorId, CreatePostDto dto)
     {
+        // 지문 카테고리면 해당 카테고리의 마지막 SortOrder + 1 자동 배정
+        int sortOrder = 0;
+        if ((int)dto.Category >= 10)
+        {
+            var maxOrder = await _db.Posts
+                .Where(p => p.Category == dto.Category)
+                .MaxAsync(p => (int?)p.SortOrder) ?? -1;
+            sortOrder = maxOrder + 1;
+        }
+
         var post = new Post
         {
             AuthorId = authorId,
             Category = dto.Category,
             Title = dto.Title,
             Content = dto.Content,
-            IsPinned = dto.IsPinned
+            IsPinned = dto.IsPinned,
+            SortOrder = sortOrder
         };
 
         _db.Posts.Add(post);
@@ -88,6 +102,20 @@ public class PostService : IPostService
         await _db.SaveChangesAsync();
     }
 
+    public async Task ReorderPassagesAsync(List<ReorderPassageDto> orders)
+    {
+        var ids = orders.Select(o => o.Id).ToList();
+        var posts = await _db.Posts.Where(p => ids.Contains(p.Id)).ToListAsync();
+
+        foreach (var post in posts)
+        {
+            var order = orders.FirstOrDefault(o => o.Id == post.Id);
+            if (order != null) post.SortOrder = order.SortOrder;
+        }
+
+        await _db.SaveChangesAsync();
+    }
+
     private static PostDto Map(Post p) => new()
     {
         Id = p.Id,
@@ -97,6 +125,7 @@ public class PostService : IPostService
         Content = p.Content,
         IsPinned = p.IsPinned,
         ViewCount = p.ViewCount,
+        SortOrder = p.SortOrder,
         CreatedAt = p.CreatedAt,
         UpdatedAt = p.UpdatedAt
     };

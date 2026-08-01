@@ -12,6 +12,7 @@ public class PostDto
     public string Content { get; set; } = string.Empty;
     public bool IsPinned { get; set; }
     public int ViewCount { get; set; }
+    public int SortOrder { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
 }
@@ -40,4 +41,10 @@ public class UpdatePostDto
     public string? Content { get; set; }
 
     public bool? IsPinned { get; set; }
+}
+
+public class ReorderPassageDto
+{
+    public int Id { get; set; }
+    public int SortOrder { get; set; }
 }

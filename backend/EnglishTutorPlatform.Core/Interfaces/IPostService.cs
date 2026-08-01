@@ -11,4 +11,5 @@ public interface IPostService
     Task<PostDto> CreatePostAsync(int authorId, CreatePostDto dto);
     Task<PostDto> UpdatePostAsync(int id, UpdatePostDto dto);
     Task DeletePostAsync(int id);
+    Task ReorderPassagesAsync(List<ReorderPassageDto> orders);
 }

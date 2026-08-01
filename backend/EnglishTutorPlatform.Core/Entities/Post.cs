@@ -11,6 +11,7 @@ public class Post
     public string Content { get; set; } = string.Empty;
     public bool IsPinned { get; set; } = false;
     public int ViewCount { get; set; } = 0;
+    public int SortOrder { get; set; } = 0;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 

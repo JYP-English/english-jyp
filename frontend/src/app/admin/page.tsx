@@ -1,90 +1,93 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
+import { useAdminAuth } from '@/stores/adminAuthStore';
 
-export default function AdminPage() {
+const QUICK_LINKS = [
+  { label: '지문 관리', href: '/admin/passages', icon: '📄', desc: '분야별 모의고사 지문 추가·수정·삭제·순서 조정' },
+  { label: '게시물 관리', href: '#', icon: '📝', desc: '공지사항, 칼럼, 후기 관리', soon: true },
+  { label: '문의 관리', href: '#', icon: '📬', desc: '학생·학부모 문의 확인 및 답변', soon: true },
+  { label: '졸업생 후기', href: '#', icon: '🎓', desc: '후기 등록 및 노출 관리', soon: true },
+  { label: '우수 학생', href: '#', icon: '🏆', desc: '우수 학생 등록 및 관리', soon: true },
+  { label: '학원 게시판', href: '#', icon: '📌', desc: '공지 및 자유 게시판', soon: true },
+];
+
+function LoginForm() {
   const [password, setPassword] = useState('');
-  const [authed, setAuthed] = useState(false);
   const [error, setError] = useState('');
+  const { login } = useAdminAuth();
 
-  function handleLogin(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // TODO: replace with real JWT auth call
-    if (password === 'Pa64949372@@1231') {
-      setAuthed(true);
-      setError('');
-    } else {
-      setError('비밀번호가 올바르지 않습니다.');
-    }
-  }
-
-  if (!authed) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="bg-white rounded-2xl border border-gray-200 p-10 w-full max-w-sm shadow-sm">
-          <h1 className="text-2xl font-bold mb-1">관리자 로그인</h1>
-          <p className="text-gray-400 text-sm mb-8">카르마 영어학원 관리자 전용 페이지입니다.</p>
-          <form onSubmit={handleLogin} className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">비밀번호</label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full border border-gray-300 rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-gray-900"
-                placeholder="관리자 비밀번호"
-                autoFocus
-              />
-            </div>
-            {error && <p className="text-red-500 text-sm">{error}</p>}
-            <button
-              type="submit"
-              className="w-full py-2.5 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-700 transition-colors"
-            >
-              로그인
-            </button>
-          </form>
-        </div>
-      </div>
-    );
+    const ok = login(password);
+    if (!ok) setError('비밀번호가 올바르지 않습니다.');
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-        <h1 className="text-lg font-bold">카르마 학원 관리자</h1>
-        <button
-          onClick={() => setAuthed(false)}
-          className="text-sm text-gray-500 hover:text-gray-900"
-        >
-          로그아웃
-        </button>
-      </header>
-
-      <main className="max-w-5xl mx-auto px-6 py-10">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {ADMIN_SECTIONS.map((sec) => (
-            <div
-              key={sec.label}
-              className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-gray-400 transition-colors cursor-pointer"
-            >
-              <span className="text-3xl">{sec.icon}</span>
-              <h2 className="font-bold mt-3 mb-1">{sec.label}</h2>
-              <p className="text-sm text-gray-400">{sec.desc}</p>
-              <p className="text-xs text-gray-300 mt-3">준비 중</p>
-            </div>
-          ))}
-        </div>
-      </main>
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="bg-white rounded-2xl border border-gray-200 p-10 w-full max-w-sm shadow-sm">
+        <h1 className="text-2xl font-bold mb-1">관리자 로그인</h1>
+        <p className="text-gray-400 text-sm mb-8">카르마 영어학원 관리자 전용 페이지입니다.</p>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">비밀번호</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full border border-gray-300 rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-gray-900"
+              placeholder="관리자 비밀번호"
+              autoFocus
+            />
+          </div>
+          {error && <p className="text-red-500 text-sm">{error}</p>}
+          <button
+            type="submit"
+            className="w-full py-2.5 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-700 transition-colors"
+          >
+            로그인
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
 
-const ADMIN_SECTIONS = [
-  { icon: '📝', label: '게시물 관리', desc: '공지사항, 학원 게시판 글 작성 및 수정' },
-  { icon: '📊', label: '모의고사 자료', desc: '기출문제 및 분석 자료 업로드' },
-  { icon: '🏫', label: '내신 자료', desc: '학교별 기출 경향, 문법, 기출문제 관리' },
-  { icon: '🎓', label: '졸업생 후기', desc: '후기 등록 및 노출 관리' },
-  { icon: '🏆', label: '우수 학생', desc: '우수 학생 등록 및 관리' },
-  { icon: '📬', label: '문의 관리', desc: '학생·학부모 문의 확인 및 답변' },
-];
+export default function AdminPage() {
+  const { isAuthed } = useAdminAuth();
+
+  if (!isAuthed) return <LoginForm />;
+
+  return (
+    <div className="p-8">
+      <div className="mb-8">
+        <h1 className="text-2xl font-bold">대시보드</h1>
+        <p className="text-gray-400 text-sm mt-1">관리할 메뉴를 선택하세요.</p>
+      </div>
+
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {QUICK_LINKS.map((item) => (
+          <Link
+            key={item.label}
+            href={item.href}
+            className={`bg-white border border-gray-200 rounded-2xl p-6 transition-all ${
+              item.soon
+                ? 'opacity-50 cursor-not-allowed'
+                : 'hover:border-gray-400 hover:shadow-sm cursor-pointer'
+            }`}
+          >
+            <span className="text-3xl">{item.icon}</span>
+            <div className="flex items-center gap-2 mt-3 mb-1">
+              <h2 className="font-bold">{item.label}</h2>
+              {item.soon && (
+                <span className="text-[10px] bg-gray-100 text-gray-400 px-2 py-0.5 rounded-full">준비중</span>
+              )}
+            </div>
+            <p className="text-sm text-gray-400">{item.desc}</p>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
