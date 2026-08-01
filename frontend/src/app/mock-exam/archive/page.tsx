@@ -74,6 +74,7 @@ export default function MockExamArchivePage() {
     setLoading(false);
   }, [grade, year, board]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { fetchData(); }, [fetchData]);
 
   function toggle<T>(cur: T, val: T, set: (v: T) => void) {

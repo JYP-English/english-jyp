@@ -37,6 +37,7 @@ export default function InquiriesPage() {
     }
   }, []);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { fetchInquiries(); }, [fetchInquiries]);
 
   async function handleStatusChange(id: string, status: number) {
