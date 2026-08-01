@@ -6,10 +6,6 @@ import { useAdminAuth } from '@/stores/adminAuthStore';
 
 const QUICK_LINKS = [
   { label: '문의 관리', href: '/admin/inquiries', icon: '📬', desc: '학생·학부모 문의 확인 및 상태 관리' },
-  { label: '게시물 관리', href: '#', icon: '📝', desc: '공지사항, 칼럼, 후기 관리', soon: true },
-  { label: '졸업생 후기', href: '#', icon: '🎓', desc: '후기 등록 및 노출 관리', soon: true },
-  { label: '우수 학생', href: '#', icon: '🏆', desc: '우수 학생 등록 및 관리', soon: true },
-  { label: '학원 게시판', href: '#', icon: '📌', desc: '공지 및 자유 게시판', soon: true },
 ];
 
 function LoginForm() {

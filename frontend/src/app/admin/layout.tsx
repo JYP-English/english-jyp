@@ -6,11 +6,7 @@ import { useAdminAuth } from '@/stores/adminAuthStore';
 
 const MENU = [
   { label: '대시보드', href: '/admin', icon: '🏠' },
-  { label: '지문 관리', href: '/admin/passages', icon: '📄' },
-  { label: '게시물 관리', href: '/admin/posts', icon: '📝', soon: true },
   { label: '문의 관리', href: '/admin/inquiries', icon: '📬' },
-  { label: '졸업생 후기', href: '/admin/graduates', icon: '🎓', soon: true },
-  { label: '우수 학생', href: '/admin/top-students', icon: '🏆', soon: true },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
