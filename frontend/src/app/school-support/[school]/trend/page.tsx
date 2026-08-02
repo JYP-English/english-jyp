@@ -5,10 +5,6 @@ import { SCHOOLS } from '@/lib/constants';
 
 interface Props { params: Promise<{ school: string }> }
 
-export async function generateStaticParams() {
-  return SCHOOLS.map((s) => ({ school: s.slug }));
-}
-
 export default async function TrendPage({ params }: Props) {
   const { school } = await params;
   const found = SCHOOLS.find((s) => s.slug === school);
