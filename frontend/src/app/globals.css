@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 /* ── 카르마 영어 브랜드 컬러 ──────────────────────────────
-   Primary: 딥 포레스트 그린  (#1B4332 계열)
-   Accent:  골드              (#C9A64A)
+   Dark  #1E4D3A  딥 포레스트 그린 (primary)
+   Mid   #4C8F5A  미디엄 그린      (secondary)
+   Gold  #C8A95A  골드 액센트      (accent)
    ──────────────────────────────────────────────────────── */
 
 :root {
@@ -16,30 +17,31 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  /* emerald 팔레트 → 카르마 포레스트 그린으로 교체 */
-  --color-emerald-50:  #eef6f1;
-  --color-emerald-100: #d0e9d9;
-  --color-emerald-200: #a4d4b5;
-  --color-emerald-300: #6aaf8a;
-  --color-emerald-400: #3d9165;
-  --color-emerald-500: #267349;
-  --color-emerald-600: #1e5c3a;
-  --color-emerald-700: #1B4332;
+  /* emerald 팔레트 — 브랜드 다크 #1E4D3A / 미드 #4C8F5A 기준 */
+  --color-emerald-50:  #edf7ef;
+  --color-emerald-100: #d5ebdc;
+  --color-emerald-200: #b0d8bb;
+  --color-emerald-300: #84be96;
+  --color-emerald-400: #61a876;
+  --color-emerald-500: #4C8F5A;
+  --color-emerald-600: #376e44;
+  --color-emerald-700: #1E4D3A;
   --color-emerald-800: #163829;
-  --color-emerald-900: #0f2a1d;
+  --color-emerald-900: #0e241a;
 
   /* green 팔레트도 동일 계열로 통일 */
-  --color-green-50:  #eef6f1;
-  --color-green-100: #d0e9d9;
-  --color-green-200: #a4d4b5;
-  --color-green-600: #1e5c3a;
-  --color-green-700: #1B4332;
+  --color-green-50:  #edf7ef;
+  --color-green-100: #d5ebdc;
+  --color-green-200: #b0d8bb;
+  --color-green-600: #376e44;
+  --color-green-700: #1E4D3A;
 
-  /* 골드 액센트 (필요 시 gold-* 클래스로 사용) */
-  --color-gold-300: #e8cc7e;
-  --color-gold-400: #d4b055;
-  --color-gold-500: #c9a64a;
-  --color-gold-600: #a8853a;
+  /* 골드 액센트 — 브랜드 골드 #C8A95A 기준 */
+  --color-gold-50:  #faf5e8;
+  --color-gold-300: #e6d09c;
+  --color-gold-400: #d9bc76;
+  --color-gold-500: #C8A95A;
+  --color-gold-600: #a8893e;
 }
 
 @media (prefers-color-scheme: dark) {
