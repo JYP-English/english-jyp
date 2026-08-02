@@ -10,7 +10,8 @@ export const revalidate = 3600;
 interface Props { params: Promise<{ school: string }> }
 
 export default async function GrammarPage({ params }: Props) {
-  const { school } = await params;
+  const { school: raw } = await params;
+  const school = decodeURIComponent(raw);
   const found = SCHOOLS.find((s) => s.slug === school);
   if (!found) notFound();
 

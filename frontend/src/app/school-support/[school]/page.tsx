@@ -10,13 +10,15 @@ export const revalidate = 3600;
 interface Props { params: Promise<{ school: string }> }
 
 export async function generateMetadata({ params }: Props) {
-  const { school } = await params;
+  const { school: raw } = await params;
+  const school = decodeURIComponent(raw);
   const found = SCHOOLS.find((s) => s.slug === school);
   return { title: found ? `${found.name} 내신지원` : '내신지원' };
 }
 
 export default async function SchoolPage({ params }: Props) {
-  const { school } = await params;
+  const { school: raw } = await params;
+  const school = decodeURIComponent(raw);
   const found = SCHOOLS.find((s) => s.slug === school);
   if (!found) notFound();
 

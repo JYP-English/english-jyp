@@ -6,7 +6,8 @@ import { SCHOOLS } from '@/lib/constants';
 interface Props { params: Promise<{ school: string }> }
 
 export default async function TrendPage({ params }: Props) {
-  const { school } = await params;
+  const { school: raw } = await params;
+  const school = decodeURIComponent(raw);
   const found = SCHOOLS.find((s) => s.slug === school);
   if (!found) notFound();
 

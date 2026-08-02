@@ -13,7 +13,8 @@ function getParagraphText(block: NotionBlock): string | null {
 }
 
 export default async function WorkbookDetailPage({ params }: Props) {
-  const { school, id } = await params;
+  const { school: raw, id } = await params;
+  const school = decodeURIComponent(raw);
   const found = SCHOOLS.find((s) => s.slug === school);
   if (!found) notFound();
 
