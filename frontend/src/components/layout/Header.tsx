@@ -19,13 +19,13 @@ const NAV = [
     label: '내신지원',
     href: '/school-support',
     children: [
-      { label: '센텀중학교',        href: '/school-support/centum-middle' },
-      { label: '센텀고등학교',      href: '/school-support/centum-high' },
-      { label: '남일고등학교',      href: '/school-support/namil-high' },
-      { label: '충렬고등학교',      href: '/school-support/chungyeol-high' },
-      { label: '해운대고등학교',    href: '/school-support/haeundae-high' },
-      { label: '센텀여자고등학교',  href: '/school-support/centum-girls-high' },
-      { label: '해강고등학교',      href: '/school-support/haegang-high' },
+      { label: '센텀중학교',        href: '/school-support/센텀중' },
+      { label: '센텀고등학교',      href: '/school-support/센텀고' },
+      { label: '남일고등학교',      href: '/school-support/남일고' },
+      { label: '충렬고등학교',      href: '/school-support/충렬고' },
+      { label: '해운대고등학교',    href: '/school-support/해운대고' },
+      { label: '센텀여자고등학교',  href: '/school-support/센텀여고' },
+      { label: '해강고등학교',      href: '/school-support/해강고' },
     ],
   },
   {
@@ -72,7 +72,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold text-blue-700 shrink-0">
+        <Link href="/" className="text-xl font-bold text-emerald-700 shrink-0">
           카르마 영어
         </Link>
 
@@ -84,8 +84,8 @@ export default function Header() {
                 href={item.href}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   pathname.startsWith(item.href)
-                    ? 'text-blue-700 bg-blue-50'
-                    : 'text-gray-700 hover:text-blue-700 hover:bg-gray-50'
+                    ? 'text-emerald-700 bg-emerald-50'
+                    : 'text-gray-700 hover:text-emerald-700 hover:bg-gray-50'
                 }`}
               >
                 {item.label}
@@ -99,7 +99,7 @@ export default function Header() {
                       href={child.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block px-4 py-2 text-sm text-gray-600 hover:text-blue-700 hover:bg-blue-50"
+                      className="block px-4 py-2 text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50"
                     >
                       {child.label} ↗
                     </a>
@@ -107,8 +107,8 @@ export default function Header() {
                     <Link
                       key={child.href}
                       href={child.href}
-                      className={`block px-4 py-2 text-sm hover:bg-blue-50 ${
-                        pathname === child.href ? 'text-blue-700 font-medium' : 'text-gray-600 hover:text-blue-700'
+                      className={`block px-4 py-2 text-sm hover:bg-emerald-50 ${
+                        pathname === child.href ? 'text-emerald-700 font-medium' : 'text-gray-600 hover:text-emerald-700'
                       }`}
                     >
                       {child.label}
@@ -160,7 +160,7 @@ export default function Header() {
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="block pl-8 pr-4 py-2.5 text-sm text-gray-600 hover:text-blue-700"
+                        className="block pl-8 pr-4 py-2.5 text-sm text-gray-600 hover:text-emerald-700"
                         onClick={() => setOpen(false)}
                       >
                         {child.label}

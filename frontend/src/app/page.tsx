@@ -8,7 +8,7 @@ const SECTIONS = [
     href: '/mock-exam',
     icon: '📝',
     title: '모의고사',
-    color: 'from-blue-500 to-blue-700',
+    color: 'from-emerald-700 to-emerald-900',
     items: ['자료실 (학년별 · 연도별)', '오답률 TOP 3', '분야별 지문', 'AI 시험 찾기'],
   },
   {
@@ -40,18 +40,18 @@ export default function HomePage() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="bg-gradient-to-br from-blue-700 to-blue-900 text-white py-20">
+        <section className="bg-gradient-to-br from-emerald-700 to-emerald-900 text-white py-20">
           <div className="max-w-7xl mx-auto px-4 text-center">
-            <p className="text-blue-200 font-medium mb-3 tracking-widest text-sm uppercase">Karma English Academy</p>
+            <p className="text-emerald-200 font-medium mb-3 tracking-widest text-sm uppercase">Karma English Academy</p>
             <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
               카르마 영어와 함께<br />영어를 정복하세요
             </h1>
-            <p className="text-blue-100 text-lg mb-10 max-w-2xl mx-auto">
+            <p className="text-emerald-100 text-lg mb-10 max-w-2xl mx-auto">
               중고등학생을 위한 내신·수능 영어 전문 학원.<br />
               모의고사 자료부터 AI 학습 도구, 영어 게임까지 한 곳에서.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/mock-exam" className="px-8 py-3 bg-white text-blue-700 font-bold rounded-xl hover:bg-blue-50 transition-colors">
+              <Link href="/mock-exam" className="px-8 py-3 bg-white text-emerald-700 font-bold rounded-xl hover:bg-emerald-50 transition-colors">
                 모의고사 자료 보기
               </Link>
               <Link href="/school-support" className="px-8 py-3 border-2 border-white text-white font-bold rounded-xl hover:bg-white/10 transition-colors">
@@ -80,12 +80,12 @@ export default function HomePage() {
                   <ul className="px-6 py-4 space-y-2">
                     {s.items.map((item) => (
                       <li key={item} className="text-sm text-gray-600 flex items-center gap-2">
-                        <span className="text-blue-400">•</span> {item}
+                        <span className="text-emerald-400">•</span> {item}
                       </li>
                     ))}
                   </ul>
                   <div className="px-6 pb-4">
-                    <span className="text-sm text-blue-600 font-medium group-hover:underline">바로가기 →</span>
+                    <span className="text-sm text-emerald-600 font-medium group-hover:underline">바로가기 →</span>
                   </div>
                 </Link>
               ))}
@@ -101,7 +101,7 @@ export default function HomePage() {
                 <h2 className="text-3xl font-bold mb-1">English Games</h2>
                 <p className="text-gray-500">게임으로 재미있게 영어 실력을 키워요</p>
               </div>
-              <Link href="/games" className="text-blue-600 font-medium hover:underline text-sm">
+              <Link href="/games" className="text-emerald-600 font-medium hover:underline text-sm">
                 전체 보기 →
               </Link>
             </div>
@@ -110,10 +110,10 @@ export default function HomePage() {
                 <Link
                   key={g.slug}
                   href={`/games/${g.slug}`}
-                  className="bg-gray-50 hover:bg-blue-50 border border-gray-200 hover:border-blue-300 rounded-2xl p-5 text-center transition-all group"
+                  className="bg-gray-50 hover:bg-emerald-50 border border-gray-200 hover:border-emerald-300 rounded-2xl p-5 text-center transition-all group"
                 >
                   <span className="text-3xl">{g.icon}</span>
-                  <p className="font-semibold mt-3 text-sm group-hover:text-blue-700">{g.name}</p>
+                  <p className="font-semibold mt-3 text-sm group-hover:text-emerald-700">{g.name}</p>
                   <p className="text-xs text-gray-400 mt-1 leading-relaxed">{g.desc}</p>
                 </Link>
               ))}
