@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import PageShell from '@/components/layout/PageShell';
 
-export const metadata = { title: '입학 안내 | 카르마 학원' };
+export const metadata = { title: '입학 안내 | 카르마 영어' };
 
 const INFO_ITEMS = [
   { label: '수업 시간', value: '평일 오후 3시 ~ 9시 / 주말 오전 10시 ~ 오후 4시' },
@@ -14,12 +14,12 @@ export default function AdmissionPage() {
   return (
     <PageShell>
       <nav className="text-sm text-gray-400 mb-6">
-        <Link href="/academy" className="hover:text-gray-700">카르마 학원</Link>
+        <Link href="/academy" className="hover:text-gray-700">카르마 영어</Link>
         {' / '}
         <span className="text-gray-700 font-medium">입학 안내</span>
       </nav>
       <h1 className="text-3xl font-bold mb-2">입학 안내</h1>
-      <p className="text-gray-500 mb-10">카르마 영어학원 입학에 관한 정보입니다.</p>
+      <p className="text-gray-500 mb-10">카르마 영어 입학에 관한 정보입니다.</p>
 
       <div className="max-w-2xl space-y-4">
         {INFO_ITEMS.map((item) => (

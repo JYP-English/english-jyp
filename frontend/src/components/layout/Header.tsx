@@ -29,7 +29,7 @@ const NAV = [
     ],
   },
   {
-    label: '카르마 학원',
+    label: '카르마 영어',
     href: '/academy',
     children: [
       { label: '입학안내',    href: '/academy/admission' },

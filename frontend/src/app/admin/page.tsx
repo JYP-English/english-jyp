@@ -23,7 +23,7 @@ function LoginForm() {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
       <div className="bg-white rounded-2xl border border-gray-200 p-10 w-full max-w-sm shadow-sm">
         <h1 className="text-2xl font-bold mb-1">관리자 로그인</h1>
-        <p className="text-gray-400 text-sm mb-8">카르마 영어학원 관리자 전용 페이지입니다.</p>
+        <p className="text-gray-400 text-sm mb-8">카르마 영어 관리자 전용 페이지입니다.</p>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">비밀번호</label>

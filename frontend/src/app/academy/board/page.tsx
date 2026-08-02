@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import PageShell from '@/components/layout/PageShell';
 
-export const metadata = { title: '학원 게시판 | 카르마 학원' };
+export const metadata = { title: '학원 게시판 | 카르마 영어' };
 
 export default function BoardPage() {
   return (
     <PageShell>
       <nav className="text-sm text-gray-400 mb-6">
-        <Link href="/academy" className="hover:text-gray-700">카르마 학원</Link>
+        <Link href="/academy" className="hover:text-gray-700">카르마 영어</Link>
         {' / '}
         <span className="text-gray-700 font-medium">학원 게시판</span>
       </nav>

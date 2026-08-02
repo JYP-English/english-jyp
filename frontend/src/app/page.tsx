@@ -21,7 +21,7 @@ const SECTIONS = [
   {
     href: '/academy',
     icon: '🎓',
-    title: '카르마 영어 학원',
+    title: '카르마 영어',
     color: 'from-violet-500 to-violet-700',
     items: ['입학안내', '졸업생 · 성적우수', '자유게시판', '네이버블로그'],
   },

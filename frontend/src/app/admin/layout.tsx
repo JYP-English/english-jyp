@@ -20,7 +20,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       {/* Sidebar */}
       <aside className="w-56 shrink-0 bg-gray-900 text-white flex flex-col">
         <div className="px-5 py-5 border-b border-gray-700">
-          <p className="text-xs text-gray-400 mb-1">카르마 학원</p>
+          <p className="text-xs text-gray-400 mb-1">카르마 영어</p>
           <p className="font-bold">관리자 센터</p>
         </div>
         <nav className="flex-1 px-3 py-4 space-y-1">
