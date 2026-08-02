@@ -1,11 +1,11 @@
 export const SCHOOLS = [
-  { slug: 'centum-middle',      name: '센텀중학교' },
-  { slug: 'centum-high',        name: '센텀고등학교' },
-  { slug: 'namil-high',         name: '남일고등학교' },
-  { slug: 'chungyeol-high',     name: '충렬고등학교' },
-  { slug: 'haeundae-high',      name: '해운대고등학교' },
-  { slug: 'centum-girls-high',  name: '센텀여자고등학교' },
-  { slug: 'haegang-high',       name: '해강고등학교' },
+  { slug: '센텀중',  name: '센텀중학교' },
+  { slug: '센텀고',  name: '센텀고등학교' },
+  { slug: '남일고',  name: '남일고등학교' },
+  { slug: '충렬고',  name: '충렬고등학교' },
+  { slug: '해운대고', name: '해운대고등학교' },
+  { slug: '센텀여고', name: '센텀여자고등학교' },
+  { slug: '해강고',  name: '해강고등학교' },
 ] as const;
 
 export type SchoolSlug = typeof SCHOOLS[number]['slug'];
