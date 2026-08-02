@@ -26,8 +26,8 @@ function FilterBtn({
       onClick={onClick}
       className={`px-4 py-1.5 text-sm rounded-full border transition-colors ${
         active
-          ? 'bg-blue-600 text-white border-blue-600 font-semibold'
-          : 'border-gray-200 hover:border-blue-400 hover:text-blue-600'
+          ? 'bg-emerald-700 text-white border-emerald-700 font-semibold'
+          : 'border-gray-200 hover:border-emerald-400 hover:text-emerald-700'
       }`}
     >
       {label}
@@ -47,7 +47,7 @@ function FileBtn({ url, label, emoji }: { url: string | null; label: string; emo
       target="_blank"
       rel="noopener noreferrer"
       title={label}
-      className="inline-flex items-center gap-1 px-2 py-1 text-xs rounded-lg text-blue-600 bg-blue-50 hover:bg-blue-100 transition-colors font-medium"
+      className="inline-flex items-center gap-1 px-2 py-1 text-xs rounded-lg text-emerald-700 bg-emerald-50 hover:bg-emerald-100 transition-colors font-medium"
     >
       {emoji} {label}
     </a>

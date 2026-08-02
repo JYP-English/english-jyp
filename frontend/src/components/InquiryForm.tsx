@@ -63,7 +63,7 @@ export default function InquiryForm() {
           <input
             name="name" value={form.name} onChange={handleChange} required
             placeholder="홍길동"
-            className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
           />
         </div>
         <div>
@@ -71,7 +71,7 @@ export default function InquiryForm() {
           <input
             name="phone" value={form.phone} onChange={handleChange} required
             placeholder="010-0000-0000"
-            className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
           />
         </div>
         <div>
@@ -79,7 +79,7 @@ export default function InquiryForm() {
           <input
             name="school" value={form.school} onChange={handleChange}
             placeholder="OO중학교 / OO고등학교"
-            className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
           />
         </div>
       </div>
@@ -88,7 +88,7 @@ export default function InquiryForm() {
         <label className="block text-sm font-medium text-gray-700 mb-1">학년</label>
         <select
           name="grade" value={form.grade} onChange={handleChange}
-          className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+          className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
         >
           <option value="">선택 안함</option>
           <option value="1">1학년</option>
@@ -102,7 +102,7 @@ export default function InquiryForm() {
         <textarea
           name="message" value={form.message} onChange={handleChange} required rows={5}
           placeholder="수강 관련 궁금한 점을 자유롭게 작성해 주세요."
-          className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+          className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none"
         />
       </div>
 
@@ -111,7 +111,7 @@ export default function InquiryForm() {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="w-full py-4 bg-blue-700 text-white font-semibold rounded-xl hover:bg-blue-800 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full py-4 bg-emerald-700 text-white font-semibold rounded-xl hover:bg-emerald-800 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {status === 'loading' ? '제출 중...' : '문의 접수하기'}
       </button>
