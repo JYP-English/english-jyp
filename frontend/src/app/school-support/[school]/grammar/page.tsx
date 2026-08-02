@@ -1,7 +1,11 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import PageShell from '@/components/layout/PageShell';
+import GrammarList from '@/components/GrammarList';
 import { SCHOOLS } from '@/lib/constants';
+import { getGrammarItems } from '@/lib/notion';
+
+export const revalidate = 3600;
 
 interface Props { params: Promise<{ school: string }> }
 
@@ -14,6 +18,8 @@ export default async function GrammarPage({ params }: Props) {
   const found = SCHOOLS.find((s) => s.slug === school);
   if (!found) notFound();
 
+  const items = await getGrammarItems(school);
+
   return (
     <PageShell>
       <nav className="text-sm text-gray-400 mb-6">
@@ -21,14 +27,12 @@ export default async function GrammarPage({ params }: Props) {
         {' / '}
         <Link href={`/school-support/${school}`} className="hover:text-gray-700">{found.name}</Link>
         {' / '}
-        <span className="text-gray-700 font-medium">문법 포인트</span>
+        <span className="text-gray-700 font-medium">학기별 문법 포인트</span>
       </nav>
-      <h1 className="text-3xl font-bold mb-2">{found.name} — 문법 포인트</h1>
+      <h1 className="text-3xl font-bold mb-2">{found.name} — 학기별 문법 포인트</h1>
       <p className="text-gray-500 mb-10">학기별로 다루는 핵심 문법 포인트를 정리한 자료입니다.</p>
-      <div className="bg-white border border-dashed border-gray-200 rounded-2xl p-16 text-center text-gray-400">
-        <p className="text-4xl mb-3">📝</p>
-        <p className="font-medium">문법 포인트 자료가 준비 중입니다.</p>
-      </div>
+
+      <GrammarList items={items} />
     </PageShell>
   );
 }
