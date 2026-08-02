@@ -132,7 +132,7 @@ export default function HomePage() {
       </main>
 
       <footer className="bg-gray-900 text-gray-400 py-10 text-center text-sm">
-        <p className="font-bold text-white text-base mb-1">카르마 영어 학원</p>
+        <p className="font-bold text-white text-base mb-1">카르마 영어</p>
         <p>부산광역시 해운대구 · 중고등학생 영어 전문</p>
         <p className="mt-4 text-xs">© 2026 Karma English Academy. All rights reserved.</p>
       </footer>
