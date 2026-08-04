@@ -47,7 +47,7 @@ export default function HomePage() {
               카르마 영어와 함께<br />영어를 정복하세요
             </h1>
             <p className="text-emerald-100 text-lg mb-10 max-w-2xl mx-auto">
-              중고등학생을 위한 내신·수능 영어 전문 학원.<br />
+              중고등학생을 위한 내신·수능 영어 전문.<br />
               모의고사 자료부터 AI 학습 도구, 영어 게임까지 한 곳에서.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
