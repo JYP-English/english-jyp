@@ -11,7 +11,7 @@ export default function PageShell({ children, className = '', backHref }: Props)
   return (
     <>
       <Header />
-      <main className={`max-w-7xl mx-auto px-4 py-10 ${className}`}>
+      <main className={`max-w-7xl mx-auto px-6 py-10 ${className}`}>
         {backHref && (
           <Link
             href={backHref}
