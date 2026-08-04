@@ -2,12 +2,12 @@ import { Client } from '@notionhq/client';
 
 export const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
-// DB IDs
-export const INQUIRIES_DB_ID = process.env.NOTION_INQUIRIES_DB_ID!;
-export const TREND_DB_ID = process.env.NOTION_TREND_DB_ID!;
-export const GRAMMAR_DB_ID = process.env.NOTION_GRAMMAR_DB_ID!;
-export const PAST_EXAMS_DB_ID = process.env.NOTION_PAST_EXAMS_DB_ID!;
-export const WORKBOOK_DB_ID = process.env.NOTION_WORKBOOK_DB_ID!;
+// DB IDs — only NOTION_API_KEY is a real secret; DB IDs are hardcoded
+export const INQUIRIES_DB_ID = '3afe2be2c38f80988bd8d236d42a85f8';
+export const TREND_DB_ID     = '071a7d1c5e3a414f9ccef50275c29805';
+export const GRAMMAR_DB_ID   = '7d5f973507c54d0e8fd901ced13ff566';
+export const PAST_EXAMS_DB_ID = 'e17e515aa8624e379d251268a0532928';
+export const WORKBOOK_DB_ID  = '3817ee25156143c7b0edafece0129aca';
 
 // Inquiry status maps
 export const STATUS_TO_NAME = ['미확인', '확인완료', '처리완료'] as const;

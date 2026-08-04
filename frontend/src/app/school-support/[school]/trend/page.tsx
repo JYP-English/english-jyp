@@ -63,7 +63,7 @@ export default async function TrendPage({ params }: Props) {
                   {item.title}
                 </p>
                 {item.summary && (
-                  <p className="text-sm text-gray-400 mt-1 truncate">{item.summary}</p>
+                  <p className="text-sm text-gray-400 mt-1 line-clamp-2">{item.summary}</p>
                 )}
               </div>
               <span className="text-gray-300 group-hover:text-emerald-500 transition ml-4 shrink-0">→</span>
