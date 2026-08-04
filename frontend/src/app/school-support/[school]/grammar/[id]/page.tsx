@@ -192,7 +192,7 @@ export default async function GrammarDetailPage({ params }: Props) {
     <PageShell backHref={`/school-support/${school}/grammar`}>
       {/* Breadcrumb */}
       <nav className="text-sm text-gray-400 mb-6">
-        <Link href="/school-support" className="hover:text-gray-700">내신지원</Link>
+        <Link href="/school-support" className="hover:text-gray-700">내신 자료</Link>
         {' / '}
         <Link href={`/school-support/${school}`} className="hover:text-gray-700">{found.name}</Link>
         {' / '}

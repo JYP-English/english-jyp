@@ -16,7 +16,7 @@ const NAV = [
     ],
   },
   {
-    label: '내신지원',
+    label: '내신 자료',
     href: '/school-support',
     children: [
       { label: '센텀중학교',        href: '/school-support/센텀중' },

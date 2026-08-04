@@ -14,7 +14,7 @@ const SECTIONS = [
   {
     href: '/school-support',
     icon: '🏫',
-    title: '내신지원',
+    title: '내신 자료',
     color: 'from-emerald-500 to-emerald-700',
     items: ['센텀중 · 센텀고 · 남일고', '충렬고 · 해운대고', '센텀여고 · 해강고', '기출 · 문법 · 워크북'],
   },
@@ -55,7 +55,7 @@ export default function HomePage() {
                 모의고사 자료 보기
               </Link>
               <Link href="/school-support" className="px-8 py-3 border-2 border-white text-white font-bold rounded-xl hover:bg-white/10 transition-colors">
-                내신 지원 보기
+                내신 자료 보기
               </Link>
             </div>
           </div>

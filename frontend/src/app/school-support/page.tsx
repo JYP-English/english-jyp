@@ -2,14 +2,14 @@ import Link from 'next/link';
 import PageShell from '@/components/layout/PageShell';
 import { SCHOOLS } from '@/lib/constants';
 
-export const metadata = { title: '내신지원' };
+export const metadata = { title: '내신 자료' };
 
 export default function SchoolSupportPage() {
   return (
     <PageShell>
       <div className="mb-10">
-        <p className="text-emerald-600 font-medium text-sm mb-1">내신지원</p>
-        <h1 className="text-4xl font-bold mb-3">학교별 내신 지원</h1>
+        <p className="text-emerald-600 font-medium text-sm mb-1">내신 자료</p>
+        <h1 className="text-4xl font-bold mb-3">학교별 내신 자료</h1>
         <p className="text-gray-500">기출 경향, 문법 포인트, 기출문제, 워크북을 학교별로 제공합니다.</p>
       </div>
 

@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props) {
   const { school: raw } = await params;
   const school = decodeURIComponent(raw);
   const found = SCHOOLS.find((s) => s.slug === school);
-  return { title: found ? `${found.name} 내신지원` : '내신지원' };
+  return { title: found ? `${found.name} 내신 자료` : '내신 자료' };
 }
 
 export default async function SchoolPage({ params }: Props) {
@@ -34,7 +34,7 @@ export default async function SchoolPage({ params }: Props) {
     <PageShell>
       <div className="mb-8">
         <nav className="text-sm text-gray-400 mb-3">
-          <Link href="/school-support" className="hover:text-gray-700">내신지원</Link>
+          <Link href="/school-support" className="hover:text-gray-700">내신 자료</Link>
           {' / '}
           <span className="text-gray-700 font-medium">{found.name}</span>
         </nav>
