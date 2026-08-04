@@ -22,7 +22,7 @@ export default async function SchoolPage({ params }: Props) {
   const found = SCHOOLS.find((s) => s.slug === school);
   if (!found) notFound();
 
-  const trendItems = await getTrendItems(school);
+  const trendItems = await getTrendItems(found.name);
 
   const navTabs = [
     { slug: 'grammar',    label: '학기별 문법 포인트', desc: '학기별로 다루는 문법 포인트를 정리했습니다.' },
@@ -44,7 +44,7 @@ export default async function SchoolPage({ params }: Props) {
 
       <div className="grid sm:grid-cols-2 gap-5">
         {/* 기출 경향 — 블러 미리보기 + 준비중 모달 */}
-        <TrendPreviewCard items={trendItems} />
+        <TrendPreviewCard items={trendItems} school={school} />
 
         {/* 나머지 3개는 일반 네비게이션 카드 */}
         {navTabs.map((tab) => (

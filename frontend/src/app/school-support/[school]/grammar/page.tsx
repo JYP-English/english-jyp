@@ -15,7 +15,7 @@ export default async function GrammarPage({ params }: Props) {
   const found = SCHOOLS.find((s) => s.slug === school);
   if (!found) notFound();
 
-  const items = await getGrammarItems(school);
+  const items = await getGrammarItems(found.name);
 
   return (
     <PageShell>
