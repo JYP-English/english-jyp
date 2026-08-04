@@ -13,6 +13,14 @@ export default function InquiryForm() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
+  function handlePhoneChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const digits = e.target.value.replace(/\D/g, '').slice(0, 11);
+    let formatted = digits;
+    if (digits.length > 7) formatted = digits.slice(0, 3) + '-' + digits.slice(3, 7) + '-' + digits.slice(7);
+    else if (digits.length > 3) formatted = digits.slice(0, 3) + '-' + digits.slice(3);
+    setForm((prev) => ({ ...prev, phone: formatted }));
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus('loading');
@@ -69,12 +77,12 @@ export default function InquiryForm() {
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">연락처 *</label>
           <input
-            name="phone" value={form.phone} onChange={handleChange} required
-            placeholder="010-0000-0000"
+            name="phone" value={form.phone} onChange={handlePhoneChange} required
+            placeholder="010-0000-0000" inputMode="numeric"
             className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
           />
         </div>
-        <div>
+        <div className="md:col-span-2">
           <label className="block text-sm font-medium text-gray-700 mb-1">학교</label>
           <input
             name="school" value={form.school} onChange={handleChange}
