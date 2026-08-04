@@ -14,7 +14,7 @@ export default async function WorkbookPage({ params }: Props) {
   const found = SCHOOLS.find((s) => s.slug === school);
   if (!found) notFound();
 
-  const items = await getWorkbookItems(found.name);
+  const items = await getWorkbookItems(school);
 
   return (
     <PageShell>

@@ -14,7 +14,7 @@ export default async function PastExamsPage({ params }: Props) {
   const found = SCHOOLS.find((s) => s.slug === school);
   if (!found) notFound();
 
-  const items = await getPastExamItems(found.name);
+  const items = await getPastExamItems(school);
 
   return (
     <PageShell>

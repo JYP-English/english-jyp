@@ -22,7 +22,7 @@ export default async function SchoolPage({ params }: Props) {
   const found = SCHOOLS.find((s) => s.slug === school);
   if (!found) notFound();
 
-  const trendItems = await getTrendItems(found.name);
+  const trendItems = await getTrendItems(school);
 
   const navTabs = [
     { slug: 'grammar',    label: '학기별 문법 포인트', desc: '학기별로 다루는 문법 포인트를 정리했습니다.' },

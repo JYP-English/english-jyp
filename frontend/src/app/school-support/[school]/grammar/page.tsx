@@ -15,7 +15,7 @@ export default async function GrammarPage({ params }: Props) {
   const found = SCHOOLS.find((s) => s.slug === school);
   if (!found) notFound();
 
-  const items = await getGrammarItems(found.name);
+  const items = await getGrammarItems(school);
 
   return (
     <PageShell>
@@ -29,7 +29,7 @@ export default async function GrammarPage({ params }: Props) {
       <h1 className="text-3xl font-bold mb-2">{found.name} — 학기별 문법 포인트</h1>
       <p className="text-gray-500 mb-10">학기별로 다루는 핵심 문법 포인트를 정리한 자료입니다.</p>
 
-      <GrammarList items={items} />
+      <GrammarList items={items} school={school} />
     </PageShell>
   );
 }

@@ -154,6 +154,24 @@ export async function getPastExamItems(school: string): Promise<PastExamItem[]> 
   }
 }
 
+export async function getGrammarDetail(pageId: string) {
+  const [page, blocksRes] = await Promise.all([
+    notion.pages.retrieve({ page_id: pageId }),
+    notion.blocks.children.list({ block_id: pageId }),
+  ]);
+  const blocks = blocksRes.results as NotionBlock[];
+  const enriched = await Promise.all(
+    blocks.map(async (b) => {
+      if (b.type === 'table') {
+        const rows = await notion.blocks.children.list({ block_id: b.id });
+        return { ...b, children: rows.results };
+      }
+      return b;
+    })
+  );
+  return { page, blocks: enriched };
+}
+
 export async function getPastExamDetail(pageId: string) {
   const [page, blocks] = await Promise.all([
     notion.pages.retrieve({ page_id: pageId }),
