@@ -47,7 +47,7 @@ export default async function PastExamDetailPage({ params }: Props) {
   const paragraphs = detail.blocks.map(getParagraphText).filter(Boolean) as string[];
 
   return (
-    <PageShell>
+    <PageShell backHref={`/school-support/${school}/past-exams`}>
       <nav className="text-sm text-gray-400 mb-6">
         <Link href="/school-support" className="hover:text-gray-700">내신지원</Link>
         {' / '}

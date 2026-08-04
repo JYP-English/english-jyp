@@ -180,7 +180,7 @@ export default async function TrendDetailPage({ params }: Props) {
   const summary: string = props['내용요약']?.rich_text?.map((t: any) => t.plain_text ?? '').join('') ?? '';
 
   return (
-    <PageShell>
+    <PageShell backHref={`/school-support/${school}/trend`}>
       <nav className="text-sm text-gray-400 mb-6">
         <Link href="/school-support" className="hover:text-gray-700">내신지원</Link>
         {' / '}

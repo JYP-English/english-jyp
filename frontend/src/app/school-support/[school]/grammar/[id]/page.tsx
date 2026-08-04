@@ -189,7 +189,7 @@ export default async function GrammarDetailPage({ params }: Props) {
   const points = pointsRaw ? pointsRaw.split(',').map((p) => p.trim()).filter(Boolean) : [];
 
   return (
-    <PageShell>
+    <PageShell backHref={`/school-support/${school}/grammar`}>
       {/* Breadcrumb */}
       <nav className="text-sm text-gray-400 mb-6">
         <Link href="/school-support" className="hover:text-gray-700">내신지원</Link>
